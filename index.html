@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salary Fitment Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <marquee behavior="" direction=""><h1>Salary Fitment Calculator💰</h1></marquee>
+        <form method="POST">
+            <label>Current Basic Salary:</label>
+            <input type="number" name="salary" required>
+
+            <label>Select District:</label>
+            <select name="district" required>
+                <option value="">--Choose District--</option>
+                <option>Adilabad</option>
+                <option>Bhadradri Kothagudem</option>
+                <option>Hyderabad</option>
+                <option>Jagtial</option>
+                <option>Jangaon</option>
+                <option>Jayashankar Bhupalpally</option>
+                <option>Jogulamba Gadwal</option>
+                <option>Kamareddy</option>
+                <option>Karimnagar</option>
+                <option>Khammam</option>
+                <option>Komaram Bheem Asifabad</option>
+                <option>Mahabubabad</option>
+                <option>Mahabubnagar</option>
+                <option>Mancherial</option>
+                <option>Medak</option>
+                <option>Medchal–Malkajgiri</option>
+                <option>Mulugu</option>
+                <option>Nagarkurnool</option>
+                <option>Nalgonda</option>
+                <option>Nirmal</option>
+                <option>Nizamabad</option>
+                <option>Peddapalli</option>
+                <option>Rajanna Sircilla</option>
+                <option>Rangareddy</option>
+                <option>Sangareddy</option>
+                <option>Siddipet</option>
+                <option>Suryapet</option>
+                <option>Vikarabad</option>
+                <option>Wanaparthy</option>
+                <option>Warangal</option>
+                <option>Hanamkonda</option>
+                <option>Yadadri Bhuvanagiri</option>
+            </select>
+
+            <label>Select Department:</label>
+            <select name="department" required>
+                <option value="">--Choose Department--</option>
+                <option>Home</option>
+                <option>Finance</option>
+                <option>Education</option>
+                <option>Railways</option>
+                <option>Defence</option>
+                <option>Agriculture</option>
+                <option>External Affairs</option>
+            </select>
+
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Salary Breakdown📈</h2>
+            <p>New Basic Salary: ₹{{ result.new_basic }}</p>
+            <p>House Rent Allowance(HRA): ₹{{ result.hra }}</p>
+            <p>Dearness Allowance (DA): ₹{{ result.da }}</p>
+            <p>Medical Allowance: ₹{{ result.medical }}</p>
+            <p><strong>Gross Salary: ₹{{ result.gross }}</strong></p>
+            <p>Income Tax Deduction: ₹{{ result.tax }}</p>
+            <p><strong>Net Salary: ₹{{ result.net_salary }}</strong></p>
+            <p style="text-align: center;">🎉Congratulations you got a salary hike of: <b>₹{{ result.salary_diff }}</b></p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
